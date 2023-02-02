@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * TODO 类描述
+ * 测试类
  *
  * @version 1.0
  * @auth chenqiliang
