@@ -2,13 +2,10 @@ package com.chen.action;
 
 import com.chen.domain.User;
 import com.chen.mapper.UserMapper;
-import org.apache.ibatis.io.Resources;
+import com.chen.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * 测试类
@@ -19,13 +16,8 @@ import java.io.InputStream;
  */
 public class Test {
     public static void main(String[] args) throws IOException {
-        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
 
-        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
-
-        SqlSessionFactory sessionFactory = sqlSessionFactoryBuilder.build(inputStream);
-
-        SqlSession sqlSession = sessionFactory.openSession(true);
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession("mybatis-config.xml");
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
